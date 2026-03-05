@@ -1,22 +1,31 @@
+const { expect} = require("@playwright/test")
+const { dataSelectors} = require("../selectors/dataSelectors");
 const { BasePage } = require("./BasePage")
 
 class ContactPage extends BasePage {
     constructor(page) {
-        super(page)
+        super(page);
 
-        this.contactSection = 
-        this.nameInput
-        this.emailInput
-        this.topicDropdown
-        this.messageInput
-        this.sendMessageButton
-        this.successMessage
-        this.errorMessage
-        this.fieldError
+        this.contactSection = dataSelectors.navigation.selectorContactLink(this.page);
+        this.nameInput = dataSelectors.fields.selectorName(this.page);
+        this.emailInput = dataSelectors.fields.selectorEmail(this.page);
+        this.topicDropdown = dataSelectors.fields.selectorTopic(this.page)
+        this.messageInput = dataSelectors.fields.selectorMessage(this.page)
+
+        this.sendMessageButton = dataSelectors.button.selectorSendMessageButton(this.page)
+
+        this.successMessage = dataSelectors.success.selectorSuccessMessage(this.page)
+        this.fieldError = dataSelectors.errors(this.page) 
+
+        //data static 
     }
 
     async waitUntilVisible() {
         await this.waitForElement(this.contactSection)
+    }
+    
+    async getTitle() {
+        return await this.page.title();
     }
 
     //Dropdown manage
@@ -39,11 +48,13 @@ class ContactPage extends BasePage {
 
     async fillAndSubmit(data) {
         await this.fillFields(this.nameInput, data.name);
-        await this.fillFields(this.emailInputInput, data.email);
+        await this.fillFields(this.emailInput, data.email);
         if (data.topic) await this.selectTopic(data.topic);
         await this.fillFields(this.messageInput, data.message);
-        await this.clickElement(this.sendMessageButtonButton)
+        await this.clickElement(this.sendMessageButton)
     }
+
+    //this assertions on expect on test 
     async isSuccessMessageVisible() {
         return await this.isVisible(this.successMessage);
     }
@@ -56,10 +67,12 @@ class ContactPage extends BasePage {
         return await this.getText(this.successMessage);
     }
 
-    async getErrorMessage() {
+    /* async getErrorMessage() {
         return await this.getText(this.errorMessage);
-    }
+    } */
 
 }
+
+
 
 module.exports = { ContactPage}
