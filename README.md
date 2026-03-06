@@ -50,6 +50,7 @@ npx playwright show-report
 
 ## Project Structure
 
+```
 conteo-playwright/
 │
 ├── .github/
@@ -76,7 +77,7 @@ conteo-playwright/
 ├── playwright.config.js # Browsers, baseURL, viewports, reporters
 ├── package.json
 └── README.md
-
+```
 ## Test Coverage
 
 - 8 automated tests
