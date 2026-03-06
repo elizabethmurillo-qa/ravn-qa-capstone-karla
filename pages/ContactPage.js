@@ -1,5 +1,5 @@
-const { expect} = require("@playwright/test")
-const { dataSelectors} = require("../selectors/dataSelectors");
+const { expect } = require("@playwright/test")
+const { dataSelectors } = require("../selectors/dataSelectors");
 const { BasePage } = require("./BasePage")
 
 class ContactPage extends BasePage {
@@ -16,10 +16,10 @@ class ContactPage extends BasePage {
 
         this.successMessage = dataSelectors.success.selectorSuccess(this.page)
 
-        this.errorName = dataSelectors.errors.selectorErrorName(this.page) 
-        this.errorEmail = dataSelectors.errors.selectorErrorEmail(this.page) 
-        this.errorTopic = dataSelectors.errors.selectorErrorTopic(this.page) 
-        this.errorMessage = dataSelectors.errors.selectorErrorMessage(this.page) 
+        this.errorName = dataSelectors.errors.selectorErrorName(this.page)
+        this.errorEmail = dataSelectors.errors.selectorErrorEmail(this.page)
+        this.errorTopic = dataSelectors.errors.selectorErrorTopic(this.page)
+        this.errorMessage = dataSelectors.errors.selectorErrorMessage(this.page)
 
         //data static 
     }
@@ -27,7 +27,7 @@ class ContactPage extends BasePage {
     async waitUntilVisible() {
         await this.waitForElement(this.contactSection)
     }
-    
+
     async getTitle() {
         return await this.page.title();
     }
@@ -36,7 +36,7 @@ class ContactPage extends BasePage {
     //select topic
     async selectTopic(topic) {
         await this.waitForElement(this.topicDropdown);
-        await this.topicDropdown.selectOption({ label: topic})
+        await this.topicDropdown.selectOption({ label: topic })
     }
 
     //selected option
@@ -60,7 +60,7 @@ class ContactPage extends BasePage {
 
     //this assertions on expect on test 
     async isSuccessMessageVisible() {
-        this.waitForElement(this.successMessage)
+        await this.waitForElement(this.successMessage);
         return await this.isVisible(this.successMessage);
     }
 
@@ -74,7 +74,7 @@ class ContactPage extends BasePage {
     async isErrorTopicVisible() {
         return await this.isVisible(this.errorTopic);
     }
-    
+
     async isErrorMessageVisible() {
         return await this.isVisible(this.errorMessage);
     }
@@ -87,4 +87,4 @@ class ContactPage extends BasePage {
 
 
 
-module.exports = { ContactPage}
+module.exports = { ContactPage }
