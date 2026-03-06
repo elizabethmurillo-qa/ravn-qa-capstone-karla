@@ -14,8 +14,12 @@ class ContactPage extends BasePage {
 
         this.sendMessageButton = dataSelectors.button.selectorSendMessageButton(this.page)
 
-        this.successMessage = dataSelectors.success.selectorSuccessMessage(this.page)
-        this.fieldError = dataSelectors.errors(this.page) 
+        this.successMessage = dataSelectors.success.selectorSuccess(this.page)
+
+        this.errorName = dataSelectors.errors.selectorErrorName(this.page) 
+        this.errorEmail = dataSelectors.errors.selectorErrorEmail(this.page) 
+        this.errorTopic = dataSelectors.errors.selectorErrorTopic(this.page) 
+        this.errorMessage = dataSelectors.errors.selectorErrorMessage(this.page) 
 
         //data static 
     }
@@ -56,19 +60,27 @@ class ContactPage extends BasePage {
 
     //this assertions on expect on test 
     async isSuccessMessageVisible() {
+        this.waitForElement(this.successMessage)
         return await this.isVisible(this.successMessage);
     }
 
+    async isErrorNameVisible() {
+        return await this.isVisible(this.errorName);
+    }
+
+    async isErrorEmailVisible() {
+        return await this.isVisible(this.errorEmail);
+    }
+    async isErrorTopicVisible() {
+        return await this.isVisible(this.errorTopic);
+    }
+    
     async isErrorMessageVisible() {
         return await this.isVisible(this.errorMessage);
     }
 
-    async getSuccessMessage() {
-        return await this.getText(this.successMessage);
-    }
-
-    /* async getErrorMessage() {
-        return await this.getText(this.errorMessage);
+    /* async getSuccessMessage() {
+        return await this.getSuccessMessage(this.successMessage);
     } */
 
 }

@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:firefox": "npx playwright test --project=firefox"
   },
   "repository": {
     "type": "git",

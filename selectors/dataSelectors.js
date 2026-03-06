@@ -1,8 +1,9 @@
+const getNavigation = (page) => page.getByRole("navigation", {name: "Main navigation"});
 const dataSelectors = {
     fields: {
         selectorName: (page) => page.getByRole("textbox", {name: "Name"}),
         selectorEmail: (page) => page.getByRole("textbox", {name: "Email"}),
-        selectorTopic: (page) => page.page.getByRole("textbox", {name: "Topic"}),
+        selectorTopic: (page) => page.getByRole("combobox", {name: "Topic"}),
         selectorMessage: (page) => page.getByRole("textbox", {name: "Message"}),
     },
 
@@ -11,19 +12,20 @@ const dataSelectors = {
     },
 
     success: {
-        selectorSuccess: (page) => page.getByRole("alert", {name: "✓ Message sent! We'll get back to you soon."})
+        selectorSuccess: (page) => page.getByRole("alert").filter({hasText: "✓ Message sent! We'll get back to you soon."})
     },
 
     errors: {
-        selectorErrorName: (page) => page.getByRole("alert", {name: "Name is required."}),
-        selectorErrorEmail: (page) => page.getByRole("alert", {name: "Email is required."}),
-        selectorErrorTopic: (page) => page.getByRole("alert", {name: "Please select a topic."}),
-        selectorErrorMessage: (page) => page.getByRole("alert", {name: "Message is required."}),
+        selectorErrorName: (page) => page.getByRole("alert").filter({hasText: "Name is required."}),
+        selectorErrorEmail: (page) => page.getByRole("alert").filter({hasText: "Email is required."}),
+        selectorErrorTopic: (page) => page.getByRole("alert").filter({hasText: "Please select a topic."}),
+        selectorErrorMessage: (page) => page.getByRole("alert").filter({hasText: "Message is required."}),
     },
 
+    
     navigation: {
-        selectorNavigation: (page) => page.getByRole("navigation", {name: "Main Navigation"}),
-        selectorContactLink: (page) => page.getByRole("link", {name: "Contact"})
+        selectorNavigation: (page) => getNavigation(page),
+        selectorContactLink: (page) => getNavigation(page).getByRole("link", {name: "Contact"})
     }
 } 
 

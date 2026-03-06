@@ -4,7 +4,7 @@ const { BasePage } = require("./BasePage");
 class HomePage extends BasePage {
     constructor(page) {
         super(page);
-        this.navMenu = dataSelectors.navigation.selectorNavigation(this.page)
+        this.mainNavigation = dataSelectors.navigation.selectorNavigation(this.page)
         this.contactNavLink = dataSelectors.navigation.selectorContactLink(this.page)
     }
 
@@ -13,7 +13,7 @@ class HomePage extends BasePage {
     }
 
     async isNavMenuVisible() {
-        return await this.isVisible(this.navMenu);
+        return await this.isVisible(this.mainNavigation);
     }   
 
     async goToContactSection() {
