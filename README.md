@@ -63,7 +63,7 @@ conteo-playwright/
 │ └── ContactPage.js # Contact Section Actions
 │
 ├── tests/ # Test files
-│ ├── contact-section.spec.ja/
+│ ├── contact-section.spec.js/
 │
 ├── fixtures/
 │ └── testData.js # Valid, invalid, boundary inputs
