@@ -60,7 +60,7 @@ class ContactPage extends BasePage {
 
     //this assertions on expect on test 
     async isSuccessMessageVisible() {
-        await this.waitForElement(this.successMessage);
+        this.waitForElement(this.successMessage)
         return await this.isVisible(this.successMessage);
     }
 

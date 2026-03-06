@@ -1,10 +1,10 @@
 const getNavigation = (page) => page.getByRole("navigation", { name: "Main navigation" });
 const dataSelectors = {
     fields: {
-        selectorName: (page) => page.getByLabel("Name"),
-        selectorEmail: (page) => page.getByLabel("Email"),
-        selectorTopic: (page) => page.getByLabel("Topic"),
-        selectorMessage: (page) => page.getByLabel("Message"),
+        selectorName: (page) => page.getByRole("textbox", { name: "Name" }),
+        selectorEmail: (page) => page.getByRole("textbox", { name: "Email" }),
+        selectorTopic: (page) => page.getByRole("combobox", { name: "Topic" }),
+        selectorMessage: (page) => page.getByRole("textbox", { name: "Message" }),
     },
 
     button: {
@@ -12,7 +12,7 @@ const dataSelectors = {
     },
 
     success: {
-        selectorSuccess: (page) => page.getByRole("alert", { name: "✓ Message sent! We'll get back to you soon." })
+        selectorSuccess: (page) => page.getByRole("alert").filter({ hasText: "✓ Message sent! We'll get back to you soon." })
     },
 
     errors: {
