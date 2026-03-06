@@ -11,38 +11,37 @@ Automated testing for Conteo Landing Page. This project covers the Contact Form 
 
 ## Installation
 
-\`\`\`bash
+
 npm install
 npx playwright install
 
-\`\`\`
 
-## Running Tests
 
-\`\`\`bash
+# Running Tests
 
-# Run all tests
+
+## Run all tests
 
 npm test
 
-# Run in headed mode
+## Run in headed mode
 
 npm test -- --headed
 
-# Run specific Testt Suite
+## Run specific Testt Suite
 
 npx playwright test -g "Functional Suite"
 
-# Run specific test file
+## Run specific test file
 
 npm test tests/contact-section.spec.ts
 
-# Run on specific device
+## Run on specific device
 
 npm test -- --project=mobile
 npm test -- --project=iphone
 
-# Run on specific browser
+## Run on specific browser
 
 npm test -- --project=chromium #Chrome or Microsoft Edege
 npm test -- --project=firefox #Mozilla Firefox
@@ -51,7 +50,7 @@ npm test -- --project=firefox #Mozilla Firefox
 
 npx playwright show-report
 
-## Project Structure
+# Project Structure
 
 ```
 conteo-playwright/
@@ -82,14 +81,14 @@ conteo-playwright/
 └── README.md
 ```
 
-## Test Coverage
+# Test Coverage
 
 - 8 automated tests
 - Covers critical user journey: [Contact Form Submission / Navigation / Responsive Design ]
 - Cross-browser testing: Chromium and Firefox
 - Cross-device testing: Desktop, Tablet, Mobile
 
-## CI/CD Pipeline
+# CI/CD Pipeline
 
 Tests run automatically on every push via GitHub Actions.
 View results: https://github.com/elizabethmurillo-qa/ravn-qa-capstone-karla/actions/runs/22770284927/job/66049093053?pr=1
