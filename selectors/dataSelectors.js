@@ -31,3 +31,8 @@ const dataSelectors = {
 
 module.exports = { dataSelectors }
 
+//estar separados for feature 
+//user un metodo para no repetitividad 
+//page object manager investigar permitir inicializar todas las pages en un solo archivo 
+
+

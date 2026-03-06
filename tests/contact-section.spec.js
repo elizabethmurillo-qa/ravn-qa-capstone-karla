@@ -6,8 +6,11 @@ const { dataSelectors} = require("../selectors/dataSelectors.js")
 const { skipIfNot } = require("../utils/helpers.js");
 const {
   TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
-} = require("../fixtures/testData.js");
+} = require("../Data/testData.js");
 
+//separar  
+//una forma mas ordenada de separar
+//separar por responsabilidad (por features)
 test.describe("Functional Suite ", () => {
   test.beforeEach( async ({ page, }) => {
     skipIfNot(test, "chromium")
@@ -29,6 +32,8 @@ test.describe("Functional Suite ", () => {
     expect(await contactpage.isSuccessMessageVisible()).toBeTruthy();
   })
 
+  //AGRUPAR EXPECTS 
+  //FUNCTION 
   test("TC03 - Empty fields", async ({page}) => {
     const contactpage = new ContactPage(page);
     await contactpage.clickElement(contactpage.sendMessageButton);
@@ -67,7 +72,7 @@ test.describe(" Responsive Design Suite ", () => {
     //await homePage.goToContactSection();
   });
  
-  test("TC07 - Navigation and Contact Form visible on Mobile", async({page}) => {
+  test("TC07 - Navigation and Contact Form visible on iphone", async({page}) => {
     
     //const context = await browser.newContext({ viewport: { width: 375, height: 667 }})
     //const page = await context.newPage();
@@ -93,49 +98,3 @@ test.describe("Cross-Browser Suite- Firefox", () => {
   })
 })
   
-/* 
-test.describe("Negative path", () => {
-  test.beforeEach( async ({ page, browserName }) => {
-    test.skip(browserName !== "chromium")
-    const homePage = new HomePage(page);
-    await homePage.open();
-    await homePage.goToContactSection();
-    });  
-  test("TC05 - Empty fields", async ({page}) => {
-    const contactpage = new ContactPage(page);
-    await contactpage.clickElement(contactpage.sendMessageButton);
-    expect(await contactpage.isErrorNameVisible()).toBeTruthy();
-    expect(await contactpage.isErrorEmailVisible()).toBeTruthy();
-    expect(await contactpage.isErrorTopicVisible()).toBeTruthy();
-    expect(await contactpage.isErrorMessageVisible()).toBeTruthy()
-
-  })
-  
-  test("TC06 - invalid Email", async ({page}) => {
-    const contactpage = new ContactPage(page);
-    await contactpage.fillAndSubmit(invalidEmailFormat);
-    await expect(contactpage.errorEmail).toBeVisible();
-    
-  })
-})
-
-test.describe("Edge Cases", () => {
-  test.beforeEach( async ({ page, browserName }) => {
-    test.skip(browserName !== "chromium")
-    const homePage = new HomePage(page);
-    await homePage.open();
-    await homePage.goToContactSection();
-  });
-
-  test("TC07 - Name Field only with numbers", async ({page}) => {
-    const contactpage = new ContactPage(page);
-    contactpage.fillAndSubmit(fieldNameWithNumbers);
-    await expect(contactpage.errorName).toBeVisible();
-  })
-
-  test("TC08 - Name field without length limit", async ({page}) => {
-    const contactpage = new ContactPage(page);
-    contactpage.fillAndSubmit(invalidNameLength);
-    await expect(contactpage.errorName).toBeVisible()
-  })   
-}) */

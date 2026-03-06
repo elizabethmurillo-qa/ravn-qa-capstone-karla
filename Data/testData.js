@@ -27,3 +27,5 @@ const invalidNameLength = { name: "karlaelizabethmurillourrutiakarlaelizabethmur
 
 module.exports = {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
 
+//fixtures dentro de playwright son diferentes 
+//generar testData y no datos quedamos 

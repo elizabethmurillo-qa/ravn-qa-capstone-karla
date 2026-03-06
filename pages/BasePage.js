@@ -32,5 +32,7 @@ class BasePage {
     }
 
 }
-
+//corta la base page 
+//getElementBy
+//
 module.exports = {BasePage}
