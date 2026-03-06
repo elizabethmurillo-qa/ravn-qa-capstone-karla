@@ -6,7 +6,7 @@ const { dataSelectors} = require("../selectors/dataSelectors.js")
 const { skipIfNot } = require("../utils/helpers.js");
 const {
   TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
-} = require("../Data/testData.js");
+} = require("../data/testData.js");
 
 //separar  
 //una forma mas ordenada de separar

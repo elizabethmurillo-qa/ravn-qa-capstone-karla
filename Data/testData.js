@@ -15,10 +15,10 @@ const validData = {
 }
 
 //Invalid Data
-const fieldsEmtpy = { name: "", email: "", topic: "", message: ""} //fields empty 
-const fieldsWithWhitespaces = { name: " ", email: " ", message: " "} //fields with whitespaces
-const fieldNameWithNumbers = { name: "2", email: "karla@gmail.com", topic: TOPICS.SUPPORT, message: "This is a test with numbers"} //name with numbers
-const invalidEmailFormat = { name: "karla", email: "karlagmail.com", topic: TOPICS.BUG, message: "This a test with invalid email"} //INVALID EMAIL FORMAT
+const fieldsEmtpy = { name: "", email: "", topic: "", message: ""}  
+const fieldsWithWhitespaces = { name: " ", email: " ", message: " "} 
+const fieldNameWithNumbers = { name: "2", email: "karla@gmail.com", topic: TOPICS.SUPPORT, message: "This is a test with numbers"} 
+const invalidEmailFormat = { name: "karla", email: "karlagmail.com", topic: TOPICS.BUG, message: "This a test with invalid email"} 
 const invalidNameLength = { name: "karlaelizabethmurillourrutiakarlaelizabethmurillourrutia", 
                             email: "karla@gamil.com",
                             topic: TOPICS.FEATURE,  
@@ -26,6 +26,3 @@ const invalidNameLength = { name: "karlaelizabethmurillourrutiakarlaelizabethmur
                         }
 
 module.exports = {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
-
-//fixtures dentro de playwright son diferentes 
-//generar testData y no datos quedamos 

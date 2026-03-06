@@ -58,7 +58,7 @@ class ContactPage extends BasePage {
         await this.clickElement(this.sendMessageButton)
     }
 
-    //this assertions on expect on test 
+    
     async isSuccessMessageVisible() {
         this.waitForElement(this.successMessage)
         return await this.isVisible(this.successMessage);
@@ -79,9 +79,7 @@ class ContactPage extends BasePage {
         return await this.isVisible(this.errorMessage);
     }
 
-    /* async getSuccessMessage() {
-        return await this.getSuccessMessage(this.successMessage);
-    } */
+   
 
 }
 
