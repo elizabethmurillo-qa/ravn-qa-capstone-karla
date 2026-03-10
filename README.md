@@ -11,14 +11,10 @@ Automated testing for Conteo Landing Page. This project covers the Contact Form 
 
 ## Installation
 
-
 npm install
 npx playwright install
 
-
-
 # Running Tests
-
 
 ## Run all tests
 
@@ -63,15 +59,20 @@ conteo-playwright/
 │ ├── BasePage.js # Common Methods (navigate, waitFor, click button, fill fields)
 │ └── HomePage.js # Common Methods within Home Page (Open, navigate to Section)
 │ └── ContactPage.js # Contact Section Actions
+│ └── PageManager.js # Initilizer class
 │
 ├── tests/ # Test files
-│ ├── contact-section.spec.js/
+│ ├── contact-cross-browser.spec.js/
+│ ├── contact-functional.spec.js/
+│ ├── contact-responsive.spec.js/
 │
-├── fixtures/
+├── data/
 │ └── testData.js # Valid, invalid, boundary inputs
 │
 ├── selectors/
-│ └── dataSelectors.js # Selectors Management
+│ └── contactSelectors.js # form Selectors
+│ ├── contactValidationsSelectors.js # errors and sucess selectors
+│ ├── homeSelectors.js #navigation selectors
 │
 ├── utils/
 │ └── helpers.js # Reusable functions (viewports)
