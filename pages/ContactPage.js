@@ -1,13 +1,14 @@
-const { expect } = require("@playwright/test")
-const { homeSelectors} = require("../selectors/homeSelectors")
-const { contactValidationSelectors } = require("../selectors/contactValidationSelectors");
-const { BasePage } = require("./BasePage");
-const { contactSelectors } = require("../selectors/contactSelectors");
+import { expect } from "@playwright/test"
+import { homeSelectors} from"../selectors/homeSelectors.js";
+import { contactValidationSelectors } from "../selectors/contactValidationSelectors.js";
+import { BasePage } from "../pages/BasePage.js";
+import { contactSelectors} from "../selectors/contactSelectors.js";
+
 const home =  homeSelectors ;
 const contact = contactSelectors;
 const validations = contactValidationSelectors
 
-class ContactPage extends BasePage {
+export class ContactPage extends BasePage {
     constructor(page) {
         super(page);
 
@@ -72,4 +73,4 @@ class ContactPage extends BasePage {
 
 
 
-module.exports = { ContactPage }
+//module.exports = { ContactPage }

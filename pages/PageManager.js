@@ -1,7 +1,7 @@
-const { HomePage }      = require("../pages/HomePage.js");
-const { ContactPage }   = require("../pages/ContactPage.js");
+import { HomePage } from "../pages/HomePage.js";
+import { ContactPage } from "../pages/ContactPage.js";
 
-class PageManager {
+export class PageManager {
     constructor(page) {
         this.page = page;
 
@@ -18,4 +18,4 @@ class PageManager {
     }
 }
 
-module.exports = { PageManager }
+//module.exports = { PageManager }

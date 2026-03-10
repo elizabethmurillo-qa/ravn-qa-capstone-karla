@@ -9,4 +9,4 @@ const contactValidationSelectors = {
    
 }
 
-module.exports = { contactValidationSelectors }
+export { contactValidationSelectors }

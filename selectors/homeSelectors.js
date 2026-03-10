@@ -6,4 +6,4 @@ const homeSelectors = {
         //contactSection: (page) => page.getByRole("heading", {name: "Get in Tuch"})
 }
 
-module.exports = { homeSelectors }
+export { homeSelectors }

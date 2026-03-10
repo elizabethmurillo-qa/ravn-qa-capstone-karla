@@ -1,8 +1,9 @@
-const {generateName, 
+import {generateName, 
     generateEmail, 
     generateMessage, 
     generateLongName, 
-    generateNameNumber} = require("../utils/helpers")
+    generateNameNumber} from "../utils/helpers.js";
+
 const TOPICS = {
     GENERAL: "General Inquiry",
     FEATURE: "Feature Request",
@@ -33,5 +34,5 @@ const invalidNameLength = { name: generateLongName(),
                             message: generateMessage()
                         }
 
-module.exports = {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
+export {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
 //data automatica 

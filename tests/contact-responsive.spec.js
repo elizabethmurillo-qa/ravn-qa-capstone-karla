@@ -1,6 +1,6 @@
-const { test, expect}  = require("@playwright/test");
-const { PageManager } = require("../pages/PageManager.js");
-const { skipIfNot } = require("../utils/helpers.js");
+import { test, expect}  from "@playwright/test";
+import { PageManager } from "../pages/PageManager.js";
+import { skipIfNot } from "../utils/helpers.js" ;
 
 let pageManager, home, contact;
 

@@ -1,27 +1,27 @@
-const { faker } = require("@faker-js/faker")
-const skipIfNot = (test, ...allowedProjects) => {
+import { faker } from "@faker-js/faker"
+export const skipIfNot = (test, ...allowedProjects) => {
   const projectName = test.info().project.name;
   test.skip(!allowedProjects.includes(projectName),
     `Skipped: only runs on ${allowedProjects.join(", ")}`);
 };
 
-function generateName() {
+export function generateName() {
   return faker.person.firstName()
 }
 
-function generateEmail() {
+export function generateEmail() {
   return faker.internet.email()
 }
 
-function generateMessage() {
+export function generateMessage() {
   return faker.lorem.sentence()
 }
 
-function generateLongName() {
+export function generateLongName() {
   return faker.string.alpha(51)
 }
 
-function generateNameNumber() {
+export function generateNameNumber() {
   return faker.number.int({min: 1, max: 9}).toString();
 }
-module.exports = { skipIfNot, generateName, generateEmail, generateMessage, generateLongName, generateNameNumber };
+//module.exports = { skipIfNot, generateName, generateEmail, generateMessage, generateLongName, generateNameNumber };

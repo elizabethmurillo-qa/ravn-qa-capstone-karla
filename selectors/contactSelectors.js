@@ -9,4 +9,4 @@ const contactSelectors = {
     
 }
 
-module.exports = { contactSelectors }
+export  { contactSelectors }

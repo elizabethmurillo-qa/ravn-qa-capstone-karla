@@ -1,7 +1,7 @@
-const { homeSelectors} = require("../selectors/homeSelectors");
-const { BasePage } = require("./BasePage");
+import { homeSelectors} from "../selectors/homeSelectors.js";
+import { BasePage } from "../pages/BasePage.js";
 
-class HomePage extends BasePage {
+export class HomePage extends BasePage {
     constructor(page) {
         super(page);
         this.mainNavigation = homeSelectors.mainMenu(this.page)
@@ -22,4 +22,4 @@ class HomePage extends BasePage {
 
 }
 
-module.exports = { HomePage }; 
+//module.exports = { HomePage }; 
