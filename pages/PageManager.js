@@ -18,4 +18,3 @@ export class PageManager {
     }
 }
 
-//module.exports = { PageManager }

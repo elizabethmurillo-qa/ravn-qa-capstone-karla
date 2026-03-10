@@ -35,4 +35,3 @@ const invalidNameLength = { name: generateLongName(),
                         }
 
 export {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
-//data automatica 

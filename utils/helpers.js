@@ -24,4 +24,3 @@ export function generateLongName() {
 export function generateNameNumber() {
   return faker.number.int({min: 1, max: 9}).toString();
 }
-//module.exports = { skipIfNot, generateName, generateEmail, generateMessage, generateLongName, generateNameNumber };

@@ -73,4 +73,3 @@ export class ContactPage extends BasePage {
 
 
 
-//module.exports = { ContactPage }
