@@ -1,50 +1,51 @@
 const { expect } = require("@playwright/test")
-const { dataSelectors } = require("../selectors/dataSelectors");
-const { BasePage } = require("./BasePage")
+const { homeSelectors} = require("../selectors/homeSelectors")
+const { contactValidationSelectors } = require("../selectors/contactValidationSelectors");
+const { BasePage } = require("./BasePage");
+const { contactSelectors } = require("../selectors/contactSelectors");
+const home =  homeSelectors ;
+const contact = contactSelectors;
+const validations = contactValidationSelectors
 
 class ContactPage extends BasePage {
     constructor(page) {
         super(page);
 
-        this.contactSection = dataSelectors.navigation.selectorContactLink(this.page);
-        this.nameInput = dataSelectors.fields.selectorName(this.page);
-        this.emailInput = dataSelectors.fields.selectorEmail(this.page);
-        this.topicDropdown = dataSelectors.fields.selectorTopic(this.page)
-        this.messageInput = dataSelectors.fields.selectorMessage(this.page)
+        this.contactForm = home.contactSection(this.page);
+        this.nameInput = contact.name(this.page);
+        this.emailInput = contact.email(this.page);
+        this.topicDropdown = contact.topic(this.page)
+        this.messageInput = contact.message(this.page)
 
-        this.sendMessageButton = dataSelectors.button.selectorSendMessageButton(this.page)
+        this.sendMessageButton = contact.sendMessageButton(this.page)
 
-        this.successMessage = dataSelectors.success.selectorSuccess(this.page)
+        this.successMessage = validations.success(this.page)
 
-        this.errorName = dataSelectors.errors.selectorErrorName(this.page)
-        this.errorEmail = dataSelectors.errors.selectorErrorEmail(this.page)
-        this.errorTopic = dataSelectors.errors.selectorErrorTopic(this.page)
-        this.errorMessage = dataSelectors.errors.selectorErrorMessage(this.page)
-
+        this.errors = {
+            name: validations.errorName(this.page),
+            email: validations.errorEmail(this.page),
+            topic: validations.errorTopic(this.page),
+            message: validations.errorMessage(this.page)
+        }
         //data static 
     }
 
     async waitUntilVisible() {
-        await this.waitForElement(this.contactSection)
+        await this.waitForElement(this.contactForm)
     }
 
     async getTitle() {
         return await this.page.title();
     }
 
-    //Dropdown manage
-    //select topic
+    
     async selectTopic(topic) {
         await this.waitForElement(this.topicDropdown);
         await this.topicDropdown.selectOption({ label: topic })
     }
-
-    //selected option
     async getSelectedOption() {
         return await this.topicDropdown.inputValue();
     }
-
-    //option available
     async isTopicAvailable(topic) {
         const options = await this.topicDropdown.locator("option").allTextContents();
         return options.includes(topic);
@@ -58,28 +59,14 @@ class ContactPage extends BasePage {
         await this.clickElement(this.sendMessageButton)
     }
 
-    
     async isSuccessMessageVisible() {
         this.waitForElement(this.successMessage)
         return await this.isVisible(this.successMessage);
     }
 
-    async isErrorNameVisible() {
-        return await this.isVisible(this.errorName);
+    async validateErrorVisible(errorKey) {
+        return await this.errors[errorKey];    
     }
-
-    async isErrorEmailVisible() {
-        return await this.isVisible(this.errorEmail);
-    }
-    async isErrorTopicVisible() {
-        return await this.isVisible(this.errorTopic);
-    }
-
-    async isErrorMessageVisible() {
-        return await this.isVisible(this.errorMessage);
-    }
-
-   
 
 }
 

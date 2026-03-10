@@ -1,11 +1,11 @@
-const { dataSelectors} = require("../selectors/dataSelectors");
+const { homeSelectors} = require("../selectors/homeSelectors");
 const { BasePage } = require("./BasePage");
 
 class HomePage extends BasePage {
     constructor(page) {
         super(page);
-        this.mainNavigation = dataSelectors.navigation.selectorNavigation(this.page)
-        this.contactNavLink = dataSelectors.navigation.selectorContactLink(this.page)
+        this.mainNavigation = homeSelectors.mainMenu(this.page)
+        this.contactNavLink = homeSelectors.contactLink(this.page)
     }
 
     async open() {

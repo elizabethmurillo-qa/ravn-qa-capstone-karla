@@ -9,8 +9,8 @@ class BasePage {
         await this.page.goto(url);
     }
 
-    async waitForElement(locator) {
-        await locator.waitFor({ state: "visible"})
+    async waitForElement(locator, state = "visible") {
+        await locator.waitFor({ state})
     }
 
     async clickElement(locator) {
