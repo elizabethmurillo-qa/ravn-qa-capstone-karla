@@ -1,3 +1,8 @@
+const {generateName, 
+    generateEmail, 
+    generateMessage, 
+    generateLongName, 
+    generateNameNumber} = require("../utils/helpers")
 const TOPICS = {
     GENERAL: "General Inquiry",
     FEATURE: "Feature Request",
@@ -7,22 +12,26 @@ const TOPICS = {
 }
 //Valid Data
 const validData = {
-    name: "karla",
-    email: "karla@gmail.com",
+    name: generateName(),
+    email: generateEmail(),
     topic: TOPICS.GENERAL,
-    message: "This is a test with valid data"
+    message: generateMessage()
     
 }
 
 //Invalid Data
 const fieldsEmtpy = { name: "", email: "", topic: "", message: ""}  
 const fieldsWithWhitespaces = { name: " ", email: " ", message: " "} 
-const fieldNameWithNumbers = { name: "2", email: "karla@gmail.com", topic: TOPICS.SUPPORT, message: "This is a test with numbers"} 
-const invalidEmailFormat = { name: "karla", email: "karlagmail.com", topic: TOPICS.BUG, message: "This a test with invalid email"} 
-const invalidNameLength = { name: "karlaelizabethmurillourrutiakarlaelizabethmurillourrutia", 
-                            email: "karla@gamil.com",
+
+const fieldNameWithNumbers = { name: generateNameNumber(), email: generateEmail(), topic: TOPICS.SUPPORT, message: generateMessage()} 
+
+const invalidEmailFormat = { name: generateName(), email: "invalidemail.com", topic: TOPICS.BUG, message: generateMessage()} 
+
+const invalidNameLength = { name: generateLongName(), 
+                            email: generateEmail(),
                             topic: TOPICS.FEATURE,  
-                            message: "This is a test with invalid length "
+                            message: generateMessage()
                         }
 
 module.exports = {TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength}
+//data automatica 
