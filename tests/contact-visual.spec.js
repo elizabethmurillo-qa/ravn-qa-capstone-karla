@@ -19,6 +19,7 @@ test.describe('Visual regression - Contact Section', () => {
     await home.open(page)
     await contact.waitUntilVisible();
     await waitForPageReady(page)
+    await page.waitForLoadState("networkidle")
     }); 
 
 
