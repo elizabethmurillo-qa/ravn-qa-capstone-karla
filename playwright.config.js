@@ -76,7 +76,6 @@ export default defineConfig({
     },
 
     
-    
 
     /* Test against branded browsers. */
     // {
