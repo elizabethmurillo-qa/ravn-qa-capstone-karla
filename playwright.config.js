@@ -75,13 +75,8 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], viewport: {width: 768, height: 1024} },
     },
 
-    {
-      name: 'accesibility',
-      testMatch: /.*contact-accesibility.spec\.js$/,
-      use: {
-        headless: false,
-      }
-    }
+    
+    
 
     /* Test against branded browsers. */
     // {
