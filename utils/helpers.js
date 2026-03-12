@@ -31,7 +31,7 @@ export function generateNameNumber() {
 const results_file = './a11yResults.json'
 
 
-
+//Accesibility Helpers
 export function allResultsTests(results) {
   let existing = { violations: [] };
 
@@ -67,6 +67,45 @@ export function a11yFinalReport() {
   })
   fs.unlinkSync(results_file)
 
+}
+
+//Visual Helpers
+export function buildSnapshotName(baseName, testInfo) {
+  const project = testInfo.project.name.toLowerCase()
+
+  let viewport = "desktop"
+
+  if (project.includes("iphone") || project.includes("android")) {
+    viewport = "mobile"
+  }
+
+  if (project.includes("iPad")) {
+    vewport = "tablet"
+  }
+
+  return [`${baseName}`, `${viewport}.png`]
+}
+//full page and elements
+export function screenshotOptions(overrides = {}) {
+  return {
+  animations: "disabled",
+  scale: "css",
+  ...overrides,
+}
+}
+
+export async function waitForPageReady(page) {
+  await page.evaluate(() => document.fonts.ready)
+  await page.evaluate(() => new Promise(requestAnimationFrame))
+
+}
+
+export function compareOptions(overrides = {}) {
+  return screenshotOptions({
+    threshold: 0.2,
+    maxDiffPixels:100,
+  ...overrides,
+  })
 }
 
 
