@@ -32,3 +32,10 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: accesibility-report
+          path: ./accesibility-report/a11yReport/
+          retention-days: 30

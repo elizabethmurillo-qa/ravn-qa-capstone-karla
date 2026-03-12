@@ -28,11 +28,12 @@ export class ContactPage extends BasePage {
             topic: validations.errorTopic(this.page),
             message: validations.errorMessage(this.page)
         }
-        //data static 
+        
     }
 
     async waitUntilVisible() {
         await this.waitForElement(this.contactForm)
+        
     }
 
     async getTitle() {
