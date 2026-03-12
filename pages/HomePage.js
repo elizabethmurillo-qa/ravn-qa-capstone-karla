@@ -1,5 +1,6 @@
 import { homeSelectors} from "../selectors/homeSelectors.js";
 import { BasePage } from "../pages/BasePage.js";
+import { contactSelectors } from "../selectors/contactSelectors.js";
 
 export class HomePage extends BasePage {
     constructor(page) {
@@ -18,6 +19,7 @@ export class HomePage extends BasePage {
 
     async goToContactSection() {
         await this.clickElement(this.contactNavLink);
+        
     }
 
 }

@@ -7,6 +7,7 @@ export class BasePage {
 
     async navigateTo(url) {
         await this.page.goto(url);
+        
     }
 
     async waitForElement(locator, state = "visible") {
