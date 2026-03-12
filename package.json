@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/elizabethmurillo-qa/ravn-qa-capstone-karla#readme",
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.3.3"
+    "@types/node": "^25.3.3",
+    "axe-html-reporter": "^2.2.11"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0"
