@@ -17,7 +17,7 @@ export class ContactPage extends BasePage {
         this.emailInput = contact.email(this.page);
         this.topicDropdown = contact.topic(this.page)
         this.messageInput = contact.message(this.page)
-
+        
         this.sendMessageButton = contact.sendMessageButton(this.page)
 
         this.successMessage = validations.success(this.page)
