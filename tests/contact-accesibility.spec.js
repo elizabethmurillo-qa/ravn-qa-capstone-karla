@@ -85,16 +85,7 @@ test.beforeEach( async ({ page}) => {
       a11yFinalReport()    
   })
 
-    /* test("Test-006: all", async ({page}) => {
-      const a11y = await new AxeBuilder({page})
-        .include(homeSelectors.contactA11y)
-        .withTags([
-            'wcag2a', 'wcag2aa'
-        ]).analyze()
-
-        allResultsTests(a11y)
-        expect(a11y.violations).toEqual([])
-    })  */
+    
 
     
  
