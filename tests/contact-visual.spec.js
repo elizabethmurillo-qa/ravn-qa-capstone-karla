@@ -11,7 +11,7 @@ import { contactValidationSelectors } from "../selectors/contactValidationSelect
 let pageManager, home, contact;
 
 
-test.describe('Visual regreession - Contact Section', () => {
+test.describe('Visual regression - Contact Section', () => {
     test.beforeEach( async ({ page}) => {
     pageManager = new PageManager(page);
     home = pageManager.getHomePage();
