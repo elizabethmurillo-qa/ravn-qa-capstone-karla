@@ -1,8 +1,7 @@
 import { test, expect}  from "@playwright/test";
 import { PageManager } from "../pages/PageManager.js";
 import { skipIfNot } from "../utils/helpers.js" ;
-import {
-  TOPICS, validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
+import { validData
 } from "../data/testData.js";
 
 let pageManager, home, contact;

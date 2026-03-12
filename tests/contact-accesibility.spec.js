@@ -1,14 +1,9 @@
 import { test, expect}  from "@playwright/test";
 import { homeSelectors } from "../selectors/homeSelectors.js";
-//import { contactSelectors } from "../selectors/contactSelectors.js";
 import AxeBuilder from "@axe-core/playwright";
 import { PageManager } from "../pages/PageManager.js";
 import { skipIfNot } from "../utils/helpers.js" ;
 import { a11yFinalReport, allResultsTests, } from "../utils/helpers.js";
-import {
-  validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
-} from "../data/testData.js";
-import { contactSelectors } from "../selectors/contactSelectors.js";
 
 let pageManager, home, contact;
 
@@ -18,9 +13,7 @@ test.beforeEach( async ({ page}) => {
     home = pageManager.getHomePage();
     contact = pageManager.getContactPage();
     await home.open(page);
-    await home.goToContactSection(page);
-    
-    
+    await home.goToContactSection(page); 
   });
 
     test("Test-001: Contact form mush use valid ARIA attributes", async ({page}) => {
@@ -75,11 +68,9 @@ test.beforeEach( async ({ page}) => {
         'color-contrast'
       ]).analyze();
 
-    
       allResultsTests(a11y)
       expect(a11y.violations).toEqual([])
     })
-
 
     test.afterAll(() => {
       a11yFinalReport()    
