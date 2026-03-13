@@ -6,7 +6,7 @@ Automated testing for Conteo Landing Page. This project covers the Contact Form 
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 18
 - npm or yarn
 
 ## Installation
@@ -62,9 +62,12 @@ conteo-playwright/
 │ └── PageManager.js # Initilizer class
 │
 ├── tests/ # Test files
+│ ├── contact-visual.spec.js-snapshots/    # Visual regression Baselines
 │ ├── contact-cross-browser.spec.js/
 │ ├── contact-functional.spec.js/
 │ ├── contact-responsive.spec.js/
+│ ├── contact-visual.spec.js/
+│ ├── contact-accesibility.spec.js/
 │
 ├── data/
 │ └── testData.js # Valid, invalid, boundary inputs
@@ -84,7 +87,7 @@ conteo-playwright/
 
 # Test Coverage
 
-- 8 automated tests
+- 8+ automated tests including functional, responsive, accesibility, visual and cross-browser.
 - Covers critical user journey: [Contact Form Submission / Navigation / Responsive Design ]
 - Cross-browser testing: Chromium and Firefox
 - Cross-device testing: Desktop, Tablet, Mobile
@@ -92,7 +95,7 @@ conteo-playwright/
 # CI/CD Pipeline
 
 Tests run automatically on every push via GitHub Actions.
-View results: https://github.com/elizabethmurillo-qa/ravn-qa-capstone-karla/actions/runs/22770284927/job/66049093053?pr=1
+View results:
 
 ## Author
 
