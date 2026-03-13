@@ -2,7 +2,7 @@ import { test, expect}  from "@playwright/test";
 import { PageManager } from "../pages/PageManager.js";
 import { skipIfNot } from "../utils/helpers.js" ;
 import {
-  validData, fieldsEmtpy, fieldsWithWhitespaces, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
+  validData, fieldNameWithNumbers, invalidEmailFormat, invalidNameLength
 } from "../data/testData.js";
 
 let pageManager, home, contact;

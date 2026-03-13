@@ -42,17 +42,12 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1080}
-      },
+},
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'], viewport: { width: 1920, height: 1080}},
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] }
     },
 
     /* Test against mobile viewports. */
@@ -66,33 +61,12 @@ export default defineConfig({
     },
 
     /* Test against tablet viewports. */
-    /* {
-      name: 'Tablet',
-      use: { ...devices['Pixel 5'] },
-    }, */
+    
     {
       name: 'iPad',
       use: { ...devices['Desktop Chrome'], viewport: {width: 768, height: 1024} },
     },
 
-    
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
 
