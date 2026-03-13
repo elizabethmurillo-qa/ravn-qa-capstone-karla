@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker"
+import { base, faker } from "@faker-js/faker"
 import fs from 'fs'
 
 export const skipIfNot = (test, ...allowedProjects) => {
@@ -72,6 +72,7 @@ export function a11yFinalReport() {
 //Visual Helpers
 export function buildSnapshotName(baseName, testInfo) {
   const project = testInfo.project.name.toLowerCase()
+  const browser = testInfo.project.use.browserName
 
   let viewport = "desktop"
 
@@ -79,11 +80,11 @@ export function buildSnapshotName(baseName, testInfo) {
     viewport = "mobile"
   }
 
-  if (project.includes("iPad")) {
-    vewport = "tablet"
+  if (project.includes("ipad")) {
+    viewport = "tablet"
   }
 
-  return [`${baseName}`, `${viewport}.png`]
+  return [`${browser}-${viewport}`, `${baseName}.png`]
 }
 //full page and elements
 export function screenshotOptions(overrides = {}) {
