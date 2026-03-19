@@ -2,13 +2,11 @@ import { test, expect}  from "@playwright/test";
 import { homeSelectors } from "../selectors/homeSelectors.js";
 import AxeBuilder from "@axe-core/playwright";
 import { PageManager } from "../pages/PageManager.js";
-import { skipIfNot } from "../utils/helpers.js" ;
 import { a11yFinalReport, allResultsTests, } from "../utils/helpers.js";
 
 let pageManager, home, contact;
 
 test.beforeEach( async ({ page}) => {
-    skipIfNot(test, "chromium")
     pageManager = new PageManager(page);
     home = pageManager.getHomePage();
     contact = pageManager.getContactPage();

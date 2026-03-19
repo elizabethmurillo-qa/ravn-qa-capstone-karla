@@ -13,8 +13,9 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
- 
+
   testDir: './tests',
+  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{testFileName}-snapshots/{arg}{-projectName}{ext}',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -41,30 +42,34 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 1080}
-},
+      testMatch: ['**/contact-functional.spec.js', '**/contact-accesibility.spec.js', '**/contact-visual.spec.js'],
+      use: { browserName: 'chromium', viewport: { width: 1920, height: 1080}},
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], viewport: { width: 1920, height: 1080}},
+      testMatch: ['**/contact-cross-browser.spec.js', '**/contact-visual.spec.js'],
+      use: { browserName: 'firefox', viewport: { width: 1920, height: 1080}},
     },
 
     /* Test against mobile viewports. */
     {
       name: 'iphone',
-      use: { ...devices['Desktop Chrome'], viewport: {width: 375, height: 667}}
+      testMatch: ['**/contact-responsive.spec.js', '**/contact-visual.spec.js'],
+      use: { browserName: 'chromium', viewport: {width: 375, height: 667}}
     },
     {
       name: 'android',
-      use: { ...devices['Desktop Chrome'], viewport: {width: 360, height: 640}}
+      testMatch: ['**/contact-responsive.spec.js', '**/contact-visual.spec.js'],
+      use: { browserName: 'chromium', viewport: {width: 360, height: 640}}
     },
 
     /* Test against tablet viewports. */
-    
+
     {
       name: 'iPad',
-      use: { ...devices['Desktop Chrome'], viewport: {width: 768, height: 1024} },
+      testMatch: ['**/contact-visual.spec.js'],
+      use: { browserName: 'chromium', viewport: {width: 768, height: 1024} },
     },
 
   ],

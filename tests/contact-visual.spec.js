@@ -5,7 +5,7 @@ import { PageManager } from "../pages/PageManager.js";
 import { compareOptions, skipIfNot } from "../utils/helpers.js" ;
 import { fieldsEmtpy, validData } from "../data/testData.js";
 import { contactSelectors } from "../selectors/contactSelectors.js";
-import { buildSnapshotName, waitForPageReady, screenshotOptions } from "../utils/helpers.js";
+import { buildSnapshotName, waitForPageReady } from "../utils/helpers.js";
 import { contactValidationSelectors } from "../selectors/contactValidationSelectors.js";
 
 let pageManager, home, contact;
@@ -28,8 +28,7 @@ test.describe('Visual regression - Contact Section', () => {
         await page.addStyleTag({content: `header, .navbar {display: none !important;}`
         });
         await section.scrollIntoViewIfNeeded()
-        const screenshot = await section.screenshot(screenshotOptions())
-        await expect(screenshot).toMatchSnapshot(
+        await expect(section).toHaveScreenshot(
             buildSnapshotName("contact_section", testInfo),
             compareOptions()
         );
@@ -38,8 +37,7 @@ test.describe('Visual regression - Contact Section', () => {
     test("Test-002: Captures heading - typography and spacing", async ({page}, testInfo) => {
         const heading = homeSelectors.contactSection(page)
         await heading.scrollIntoViewIfNeeded()
-        const screenshot = await heading.screenshot(screenshotOptions())
-        await expect(screenshot).toMatchSnapshot(
+        await expect(heading).toHaveScreenshot(
             buildSnapshotName("contact-heading", testInfo),
             compareOptions()
         );
@@ -49,8 +47,7 @@ test.describe('Visual regression - Contact Section', () => {
         await contact.fillAndSubmit(fieldsEmtpy)
         const form = homeSelectors.contactContainer(page)
         await contact.scrollToElement(form)
-        const screenshot = await form.screenshot(screenshotOptions())
-        await expect(screenshot).toMatchSnapshot(
+        await expect(form).toHaveScreenshot(
             buildSnapshotName("contact_form_invalid", testInfo),
             compareOptions()
         );
@@ -60,8 +57,7 @@ test.describe('Visual regression - Contact Section', () => {
 
         const button = contactSelectors.sendMessageButton(page)
         await button.scrollIntoViewIfNeeded()
-        const screenshot = await button.screenshot(screenshotOptions())
-        await expect(screenshot).toMatchSnapshot(
+        await expect(button).toHaveScreenshot(
             buildSnapshotName("contact-cta", testInfo),
             compareOptions()
         );
@@ -71,8 +67,7 @@ test.describe('Visual regression - Contact Section', () => {
         await contact.fillAndSubmit(validData)
         const form = homeSelectors.contactContainer(page)
         await contact.scrollToElement(form)
-        const screenshot = await form.screenshot(screenshotOptions())
-        await expect(screenshot).toMatchSnapshot(
+        await expect(form).toHaveScreenshot(
             buildSnapshotName("contact_form_valid", testInfo),
             compareOptions()
         );
