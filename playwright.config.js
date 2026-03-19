@@ -42,25 +42,33 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: ['**/contact-functional.spec.js', '**/contact-accesibility.spec.js', '**/contact-visual.spec.js'],
+      testMatch: process.env.CI
+        ? ['**/contact-functional.spec.js', '**/contact-accesibility.spec.js', '**/contact-visual.spec.js']
+        : ['**/contact-functional.spec.js', '**/contact-accesibility.spec.js'],
       use: { browserName: 'chromium', viewport: { width: 1920, height: 1080}},
     },
 
     {
       name: 'firefox',
-      testMatch: ['**/contact-cross-browser.spec.js', '**/contact-visual.spec.js'],
+      testMatch: process.env.CI
+        ? ['**/contact-cross-browser.spec.js', '**/contact-visual.spec.js']
+        : ['**/contact-cross-browser.spec.js'],
       use: { browserName: 'firefox', viewport: { width: 1920, height: 1080}},
     },
 
     /* Test against mobile viewports. */
     {
       name: 'iphone',
-      testMatch: ['**/contact-responsive.spec.js', '**/contact-visual.spec.js'],
+      testMatch: process.env.CI
+        ? ['**/contact-responsive.spec.js', '**/contact-visual.spec.js']
+        : ['**/contact-responsive.spec.js'],
       use: { browserName: 'chromium', viewport: {width: 375, height: 667}}
     },
     {
       name: 'android',
-      testMatch: ['**/contact-responsive.spec.js', '**/contact-visual.spec.js'],
+      testMatch: process.env.CI
+        ? ['**/contact-responsive.spec.js', '**/contact-visual.spec.js']
+        : ['**/contact-responsive.spec.js'],
       use: { browserName: 'chromium', viewport: {width: 360, height: 640}}
     },
 
@@ -68,7 +76,7 @@ export default defineConfig({
 
     {
       name: 'iPad',
-      testMatch: ['**/contact-visual.spec.js'],
+      testMatch: process.env.CI ? ['**/contact-visual.spec.js'] : [],
       use: { browserName: 'chromium', viewport: {width: 768, height: 1024} },
     },
 
