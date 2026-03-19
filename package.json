@@ -7,8 +7,7 @@
   "scripts": {
     "test": "npx playwright test",
     "test:ui": "npx playwright test --ui",
-    "test:firefox": "npx playwright test --project=firefox",
-    "test:visual": "cross-env CI=true npx playwright test tests/contact-visual.spec.js"
+    "test:firefox": "npx playwright test --project=firefox"
   },
   "repository": {
     "type": "git",
@@ -25,8 +24,7 @@
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.3",
-    "axe-html-reporter": "^2.2.11",
-    "cross-env": "^10.1.0"
+    "axe-html-reporter": "^2.2.11"
   },
   "dependencies": {
     "@faker-js/faker": "^10.3.0"
