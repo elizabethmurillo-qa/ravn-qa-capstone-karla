@@ -84,7 +84,10 @@ export function buildSnapshotName(baseName, testInfo) {
     viewport = "tablet"
   }
 
-  return [`${browser}-${viewport}`, `${baseName}.png`]
+  const platformMap = { win32: "windows", darwin: "mac", linux: "linux" }
+  const platform = platformMap[process.platform] ?? process.platform
+
+  return [`${browser}-${viewport}-${platform}`, `${baseName}.png`]
 }
 //full page and elements
 export function screenshotOptions(overrides = {}) {
