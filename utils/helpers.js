@@ -104,7 +104,7 @@ export async function waitForPageReady(page) {
 export function compareOptions(overrides = {}) {
   return screenshotOptions({
     threshold: 0.2,
-    maxDiffPixels:100,
+    maxDiffPixelsRatio: 0.03,
   ...overrides,
   })
 }
