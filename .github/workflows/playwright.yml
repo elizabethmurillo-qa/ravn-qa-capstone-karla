@@ -66,6 +66,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -86,5 +88,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add tests/
-          git diff --staged --quiet || git commit -m "chore: update linux visual snapshots [skip ci]"
-          git push
+          git diff --staged --quiet || git commit -m "chore: update visual snapshots [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
