@@ -100,7 +100,6 @@ export async function waitForPageReady(page) {
   await page.evaluate(() => new Promise(requestAnimationFrame))
 
 }
-
 export function compareOptions(overrides = {}) {
   return screenshotOptions({
     threshold: 0.2,
