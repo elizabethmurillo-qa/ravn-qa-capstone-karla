@@ -35,16 +35,7 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     screenshot: 'only-on-failure',
-    video: "retain-on-failure",
-
-    /* Normalize font rendering across Windows and Linux to prevent
-       visual snapshot dimension mismatches caused by OS-level font hinting */
-    launchOptions: {
-      args: [
-        '--font-render-hinting=none',
-        '--disable-font-subpixel-positioning',
-      ]
-    }
+    video: "retain-on-failure"
   },
 
   /* Configure projects for major browsers */

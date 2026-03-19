@@ -20,6 +20,9 @@ test.describe('Visual regression - Contact Section', () => {
     await contact.waitUntilVisible();
     await waitForPageReady(page)
     await page.waitForLoadState("networkidle")
+    await page.addStyleTag({
+      content: `::-webkit-scrollbar { display: none !important; } * { scrollbar-width: none !important; }`
+    })
     }); 
 
 
