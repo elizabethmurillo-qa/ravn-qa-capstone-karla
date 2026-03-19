@@ -26,6 +26,20 @@ jobs:
       - name: Run Playwright tests (All Browsers & Projects)
         run: npx playwright test
 
+      - name: Claude PR Review with Browser Access
+        uses: anthropics/claude-code-action@beta
+        with:
+          allowed_tools: "mcp__playwright__browser_snapshot,mcp__playwright__browser_click"
+          mcp_config: |
+            {
+              "mcpServers": {
+                "playwright": {
+                  "command": "npx",
+                  "args": ["@playwright/mcp@latest"]
+                }
+              }
+            }
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
