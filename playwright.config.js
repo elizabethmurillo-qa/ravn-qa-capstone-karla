@@ -30,12 +30,21 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     baseURL: 'https://conteo-web-app.vercel.app',
-    
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
 
     screenshot: 'only-on-failure',
-    video: "retain-on-failure"
+    video: "retain-on-failure",
+
+    /* Normalize font rendering across Windows and Linux to prevent
+       visual snapshot dimension mismatches caused by OS-level font hinting */
+    launchOptions: {
+      args: [
+        '--font-render-hinting=none',
+        '--disable-font-subpixel-positioning',
+      ]
+    }
   },
 
   /* Configure projects for major browsers */
