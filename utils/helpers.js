@@ -73,6 +73,7 @@ export function a11yFinalReport() {
 export function buildSnapshotName(baseName, testInfo) {
   const project = testInfo.project.name.toLowerCase()
   const browser = testInfo.project.use.browserName
+  const browserFolder = browser === 'chromium' ? 'chrome' : browser
 
   let viewport = "desktop"
 
@@ -84,7 +85,7 @@ export function buildSnapshotName(baseName, testInfo) {
     viewport = "tablet"
   }
 
-  return [`${browser}-${viewport}`, `${baseName}.png`]
+  return [browserFolder, viewport, `${baseName}.png`]
 }
 //full page and elements
 export function screenshotOptions(overrides = {}) {
